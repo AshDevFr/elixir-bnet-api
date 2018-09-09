@@ -19,7 +19,6 @@ defmodule BattleNet.Wow.Auction do
           {_, reason} -> {:error, reason}
         end).()
   end
-
 end
 
 

@@ -19,7 +19,6 @@ defmodule BattleNet.Wow.Realm do
           {_, reason} -> {:error, reason}
         end).()
   end
-
 end
 
 

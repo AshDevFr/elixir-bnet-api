@@ -81,32 +81,6 @@ defmodule BattleNet.Api do
   end
 
   @doc"""
-  Resolve the shared secret token, if provided then simply return itself, otherwise
-  lookup in the configs.
-
-  ## Examples
-
-      iex> BattleNet.Api.authorization_header("abc123")
-      {"Authorization", "Bearer abc123"}
-
-      iex> BattleNet.Api.authorization_header()
-      {"Authorization", "Bearer "}
-
-  """
-  def authorization_header(token \\ nil) do
-    token
-    |> case do
-         nil -> Application.get_env(:battle_net, :token)
-         t -> t
-       end
-    |> case do
-         {:system, lookup} -> System.get_env(lookup)
-         t -> t
-       end
-    |> (fn t -> {"Authorization", "Bearer #{t}"} end).()
-  end
-
-  @doc"""
   The service's default URL, it will lookup the config,
   possibly check the env variables and default if still not found
 
