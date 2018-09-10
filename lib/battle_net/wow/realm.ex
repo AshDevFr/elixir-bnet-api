@@ -19,6 +19,25 @@ defmodule BattleNet.Wow.Realm do
           {_, reason} -> {:error, reason}
         end).()
   end
+
+  def list(apikey, region, locale \\ nil) do
+    status(apikey, region, locale)
+    |> (fn
+          {:ok, answer} -> answer |> parse_realms
+          {_, _} -> []
+        end).()
+  end
+
+  def parse_realms(answer) do
+    case answer do
+      %{realms: realms} ->
+        realms
+        |> Enum.map(
+             fn realm -> %{name: realm.name, slug: realm.slug, status: realm.status} end
+           )
+      _ -> []
+    end
+  end
 end
 
 
