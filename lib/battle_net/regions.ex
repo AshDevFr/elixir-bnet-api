@@ -15,14 +15,16 @@ defmodule BattleNet.Regions do
 
 
   defmodule US do
-    def name, do: "Europe"
+    def name, do: "USA"
+    def code, do: "US"
     def api, do: "https://us.api.battle.net/"
     def oauth, do: "https://us.battle.net/"
     def locales, do: [EN_US, ES_MX, PT_BR]
   end
 
   defmodule EU do
-    def name, do: "Usa"
+    def name, do: "Europe"
+    def code, do: "EU"
     def api, do: "https://eu.api.battle.net/"
     def oauth, do: "https://eu.battle.net/"
     def locales, do: [EN_GB, ES_ES, FR_FR, RU_RU, DE_DE, PT_PT, IT_IT]
@@ -30,6 +32,7 @@ defmodule BattleNet.Regions do
 
   defmodule KR do
     def name, do: "Korea"
+    def code, do: "KR"
     def api, do: "https://kr.api.battle.net/"
     def oauth, do: "https://apac.battle.net/"
     def locales, do: [KO_KR]
@@ -37,6 +40,7 @@ defmodule BattleNet.Regions do
 
   defmodule TW do
     def name, do: "Taiwan"
+    def code, do: "TW"
     def api, do: "https://tw.api.battle.net/"
     def oauth, do: "https://apac.battle.net/"
     def locales, do: [ZH_TW]
@@ -44,6 +48,7 @@ defmodule BattleNet.Regions do
 
   defmodule CN do
     def name, do: "China"
+    def code, do: "CN"
     def api, do: "https://api.battlenet.com.cn/"
     def oauth, do: "https://www.battlenet.com.cn/"
     def locales, do: [ZH_CN]
@@ -51,6 +56,7 @@ defmodule BattleNet.Regions do
 
   defmodule EA do
     def name, do: "South east asia"
+    def code, do: "EA"
     def api, do: "https://sea.api.battle.net/"
     def oauth, do: "https://us.battle.net/"
     def locales, do: [EN_US]
