@@ -9,9 +9,13 @@ defmodule BattleNet.Wow.Auction do
     region.api <> "wow/auction/" <> endpoint
   end
 
-  def data_status(apikey, region, realmSlug, locale \\ nil) do
+  def data_status(apikey, region, realm, locale) when is_map(realm) do
+    data_status(apikey, region, realm.slug, locale)
+  end
+
+  def data_status(apikey, region, realm, locale \\ nil) do
     region
-    |> gen_url("data/" <> realmSlug)
+    |> gen_url("data/" <> realm)
     |> BattleNet.Api.get(%{apikey: apikey, locale: BattleNet.Utils.ensure_locale(region, locale)}, [])
     |> (fn
           {200, answer} -> {:ok, answer}
