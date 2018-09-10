@@ -3,6 +3,10 @@ defmodule BattleNet.Locales do
     def code, do: "en_US"
   end
 
+  defmodule EN_GB do
+    def code, do: "en_GB"
+  end
+
   defmodule ES_MX do
     def code, do: "es_MX"
   end

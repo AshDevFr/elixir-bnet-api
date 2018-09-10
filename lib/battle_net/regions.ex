@@ -1,5 +1,6 @@
 defmodule BattleNet.Regions do
   alias BattleNet.Locales.EN_US, as: EN_US
+  alias BattleNet.Locales.EN_GB, as: EN_GB
   alias BattleNet.Locales.ES_MX, as: ES_MX
   alias BattleNet.Locales.PT_BR, as: PT_BR
   alias BattleNet.Locales.DE_DE, as: DE_DE
