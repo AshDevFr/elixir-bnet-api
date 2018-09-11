@@ -33,7 +33,7 @@ defmodule BattleNet.Wow.Realm do
       %{realms: realms} ->
         realms
         |> Enum.map(
-             fn realm -> %{name: realm.name, slug: realm.slug, status: realm.status} end
+             fn realm -> %{name: realm.name, slug: realm.slug, status: realm.status, connected_realms: realm.connected_realms |> Enum.sort} end
            )
       _ -> []
     end
