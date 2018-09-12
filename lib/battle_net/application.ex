@@ -14,7 +14,7 @@ defmodule BattleNet.Application do
 
     opts = [
       strategy: :one_for_one,
-      name:     BattleNet.Supervisor
+      name: BattleNet.Supervisor
     ]
 
     Supervisor.start_link(children, opts)

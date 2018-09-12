@@ -15,13 +15,13 @@ defmodule BattleNet.Api do
       {201, %{version: "2.0.0", user: "james"}}
 
   """
-  def call(url, method, body \\ "", query_params \\ %{}, headers \\ []) do
+  def call(url, method, body \\ "", query_params \\ %{}, headers \\ [], options \\ []) do
     HTTPoison.request(
       method,
       url |> clean_url,
       body |> encode(content_type(headers)),
       headers |> clean_headers,
-      query_params |> clean_params
+      (query_params |> clean_params) ++ options
     )
     |> case do
         {:ok, %{body: raw_body, status_code: code, headers: headers}} ->
@@ -49,8 +49,8 @@ defmodule BattleNet.Api do
       iex> BattleNet.Api.get("https://us.api.battle.net/droids/bb10")
       {404, %{error: "unknown_resource", reason: "/droids/bb10 is not the path you are looking for"}}
   """
-  def get(url, query_params \\ %{}, headers \\ []) do
-    call(url, :get, "", query_params, headers)
+  def get(url, query_params \\ %{}, headers \\ [], options \\ []) do
+    call(url, :get, "", query_params, headers, options)
   end
 
   @doc"""
