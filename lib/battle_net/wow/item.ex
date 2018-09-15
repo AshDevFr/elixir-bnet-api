@@ -11,7 +11,7 @@ defmodule BattleNet.Wow.Item do
 
   def get(apikey, region, itemId, locale \\ nil) do
     region
-    |> gen_url(itemId)
+    |> gen_url(itemId |> to_string)
     |> BattleNet.Api.get(%{apikey: apikey, locale: BattleNet.Utils.ensure_locale(region, locale)}, [])
     |> (fn
           {200, answer} -> {:ok, answer}
